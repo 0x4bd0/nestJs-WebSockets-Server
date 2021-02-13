@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Socket client</title>
+</head>
+<body>
+
+    <h1>Socket client side !</h1>
+
+    <input type="text" id="message">
+    <button type="submit" id="send">Send</button>
+    
+    <ul id="messages">
+    </ul>
+
+    <script>
+
+        let messages = ['Messages goes here']
+
+        let sumbitBtn = document.getElementById("send")
+
+        sumbitBtn.onclick = () => {
+            console.log('sumbit')
+        }
+
+        const injectLiIntoUl = () =>  {
+        let ul = document.getElementById("messages");
+        
+        for(let i=0; i<messages.length; i++){
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(messages[i]));
+            ul.appendChild(li);
+        }
+        }
+
+        
+        injectLiIntoUl()
+        
+        
+    </script>
+</body>
+</html>
