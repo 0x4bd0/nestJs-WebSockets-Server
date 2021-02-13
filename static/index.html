@@ -20,12 +20,18 @@
 
         let socket = {}
         socket.messages = io('http://localhost:4959/messages')
+        socket.alerts = io('http://localhost:4959/alerts')
         let messages = ['Messages goes here']
         let ul = document.getElementById("messages")
 
         socket.messages.on('sendToClient',(msg)=>{
             console.log('recieved' + msg)
             messages.push(msg)
+            injectLiIntoUl()
+        })
+
+        socket.alerts.on('sendAlert',(msg)=>{
+            alert(msg)
             injectLiIntoUl()
         })
 
