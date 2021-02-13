@@ -29,10 +29,12 @@ export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGateway
     // this is used to send message to everyone 
     /* this.wss.emit('sendToServer',text) */
 
+    this.logger.log('recieved' + text)
+
     // THIS 
  /*   client.emit('sendToServer',text)  */
     // Equals this, Typed
-    return { event : 'sendToServer', data : 'Hello there :)' }
+    return { event : 'sendToClient', data : text }
   }
 
 }
