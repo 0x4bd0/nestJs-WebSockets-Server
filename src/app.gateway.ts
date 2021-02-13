@@ -3,7 +3,7 @@ import { OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit, SubscribeMessa
 import { Server } from 'http';
 import { Socket } from 'socket.io'
 
-@WebSocketGateway(4959,{path:'/ws', serveClient : true, namespace :'/'})
+@WebSocketGateway(4959,{namespace:'messages'})
 export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
 
   // this is used to send message to everyone 

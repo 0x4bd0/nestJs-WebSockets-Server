@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Socket client</title>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.js" integrity="sha512-oFOCo2/3DtjrJG4N27BjSLQWoiBv171sK6a+JiWjp/7agxC2nCUP358AqzxkBUb5jX8g6CYLPdSKQTbC0weCwA==" crossorigin="anonymous"></script> -->
-     <script src='http://localhost:4959/ws/socket.io.js'></script>
+     <script src='http://localhost:4959/socket.io/socket.io.js'></script>
 </head>
 <body>
 
@@ -18,11 +18,12 @@
 
     <script>
 
-        let socket = io('http://localhost:4959',{path:"ws"})
+        let socket = {}
+        socket.messages = io('http://localhost:4959/messages')
         let messages = ['Messages goes here']
         let ul = document.getElementById("messages")
 
-        socket.on('sendToClient',(msg)=>{
+        socket.messages.on('sendToClient',(msg)=>{
             console.log('recieved' + msg)
             messages.push(msg)
             injectLiIntoUl()
@@ -34,7 +35,7 @@
         sumbitBtn.onclick = (event) => {
             event.preventDefault()
             console.log('sumbit ' + document.getElementById("message").value)
-            socket.emit('sendToServer',document.getElementById("message").value)
+            socket.messages.emit('sendToServer',document.getElementById("message").value)
         }
 
         const injectLiIntoUl = () =>  {   
