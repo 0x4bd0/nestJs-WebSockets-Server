@@ -5,7 +5,7 @@ import { Socket } from 'socket.io'
 
 @WebSocketGateway()
 export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
-  
+
   // this is used to send message to everyone 
   /* @WebSocketServer() wss : Server; */
 
@@ -31,7 +31,7 @@ export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGateway
 
     // THIS 
  /*   client.emit('sendToServer',text)  */
-    // Equals this
+    // Equals this, Typed
     return { event : 'sendToServer', data : 'Hello there :)' }
   }
 
