@@ -22,7 +22,6 @@
         let messages = ['Messages goes here']
         let ul = document.getElementById("messages")
 
-
         socket.on('sendToClient',(msg)=>{
             console.log('recieved' + msg)
             messages.push(msg)
@@ -39,7 +38,7 @@
         }
 
         const injectLiIntoUl = () =>  {   
-            ul.innerHTML = ''     
+        ul.innerHTML = ''     
         for(let i=0; i<messages.length; i++){
             let li = document.createElement("li");
             li.appendChild(document.createTextNode(messages[i]));
@@ -47,10 +46,7 @@
         }
         }
 
-        
-        injectLiIntoUl()
-        
-        
+        injectLiIntoUl()        
     </script>
 </body>
 </html>
